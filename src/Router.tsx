@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { Button, StyleSheet, Text, View, LogBox } from 'react-native';
 import React, { useCallback } from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
@@ -11,8 +11,8 @@ import * as SplashScreen from 'expo-splash-screen';
 import CustomHeader from './components/shared/Header';
 
 const Stack = createNativeStackNavigator();
-
 SplashScreen.preventAutoHideAsync();
+LogBox.ignoreLogs(['Reanimated']); // issue wiht latest version of React native with reanimated
 const Router = () => {
   const [fontsLoaded, fontError] = useFonts({
     Droid: require('../assets/fonts/ArbFONTS-DroidArabicKufi.ttf'),
@@ -29,12 +29,17 @@ const Router = () => {
   }
   return (
     <View style={styles.container} onLayout={onLayoutRootView}>
-      <Stack.Navigator>
+      <Stack.Navigator
+        screenOptions={{
+          header: (options) => (
+            <CustomHeader showLogo={false} screenName={options.route.name} />
+          ),
+        }}>
         <Stack.Screen
           name="Home"
           component={Home}
           options={{
-            header: () => <CustomHeader />,
+            header: () => <CustomHeader showLogo />,
           }}
         />
         <Stack.Screen name="UserProfile" component={UserProfile} />
@@ -49,6 +54,6 @@ export default Router;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F9F9F9',
+    backgroundColor: '#fff',
   },
 });

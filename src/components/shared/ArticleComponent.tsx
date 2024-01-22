@@ -7,11 +7,24 @@ const ArticleComponent: React.FC<ArticleProps> = ({
   imageSource,
   heading,
   description,
+  vertical,
 }) => {
   return (
-    <Pressable style={styles.container}>
-      <Image source={{ uri: imageSource }} style={styles.image} />
-      <View style={styles.detailsContainer}>
+    <Pressable
+      style={[
+        styles.container,
+        { flexDirection: vertical ? 'column' : 'row-reverse' },
+      ]}>
+      <Image
+        source={{ uri: imageSource }}
+        style={[
+          styles.image,
+          { width: vertical ? '100%' : 145 },
+          { height: vertical ? 262 : 85 },
+        ]}
+      />
+      <View
+        style={[styles.detailsContainer, { flex: vertical ? undefined : 1 }]}>
         <View style={styles.heading}>
           <Text isColorPrimary size={12}>
             {heading}
@@ -37,7 +50,7 @@ const styles = StyleSheet.create({
   container: {
     textAlign: 'right',
     gap: 10,
-    flexDirection: 'row-reverse',
+    // flexDirection: 'row-reverse',
     margin: 10,
     padding: 10,
     backgroundColor: '#ffffff',
@@ -53,13 +66,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   image: {
-    width: 145,
-    height: 85,
+    // height: 85,
     borderRadius: 4,
     marginRight: 10,
   },
   detailsContainer: {
-    flex: 1,
     flexDirection: 'column',
   },
   heading: {

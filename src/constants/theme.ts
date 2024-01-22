@@ -4,6 +4,7 @@ export const lightTheme = {
   ...DefaultTheme,
   colors: {
     primary: '#37C0BE',
+    background: '#FFFFFF',
     secondary: '#1C3C50',
     primaryText: '#333',
     purpleColor: '#B66B8A',
