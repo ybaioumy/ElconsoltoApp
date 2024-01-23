@@ -1,9 +1,11 @@
 import { StyleSheet, View, Image, Pressable } from 'react-native';
 import React from 'react';
-import { ArticleProps } from '../../types/types';
+import { ArticleComponentProps } from '../../types/types';
 import Text from './Text';
-import RenderIcon from '../../helpers/RenderIcon';
-const ArticleComponent: React.FC<ArticleProps> = ({
+import RenderIcon from './RenderIcon';
+import ArticleImage from '../../images/image.jpg';
+
+const ArticleComponent: React.FC<ArticleComponentProps> = ({
   imageSource,
   heading,
   description,
@@ -21,12 +23,13 @@ const ArticleComponent: React.FC<ArticleProps> = ({
           styles.image,
           { width: vertical ? '100%' : 145 },
           { height: vertical ? 262 : 85 },
+          vertical ? { alignSelf: 'center' } : null,
         ]}
       />
       <View
         style={[styles.detailsContainer, { flex: vertical ? undefined : 1 }]}>
         <View style={styles.heading}>
-          <Text isColorPrimary size={12}>
+          <Text isColorPrimary size={vertical ? 15 : 12} bold>
             {heading}
           </Text>
           <View style={{ flexDirection: 'row', alignItems: 'center', gap: 22 }}>
@@ -50,7 +53,6 @@ const styles = StyleSheet.create({
   container: {
     textAlign: 'right',
     gap: 10,
-    // flexDirection: 'row-reverse',
     margin: 10,
     padding: 10,
     backgroundColor: '#ffffff',
@@ -66,7 +68,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   image: {
-    // height: 85,
     borderRadius: 4,
     marginRight: 10,
   },
@@ -75,11 +76,10 @@ const styles = StyleSheet.create({
   },
   heading: {
     display: 'flex',
+    width: '100%',
     flexDirection: 'row-reverse',
     alignItems: 'center',
     justifyContent: 'space-between',
-    width: '100%',
-    // fontWeight: 'bold', //font file should has all the font weights ??
     marginBottom: 5,
   },
   description: {

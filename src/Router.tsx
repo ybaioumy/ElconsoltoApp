@@ -16,6 +16,7 @@ LogBox.ignoreLogs(['Reanimated']); // issue wiht latest version of React native 
 const Router = () => {
   const [fontsLoaded, fontError] = useFonts({
     Droid: require('../assets/fonts/ArbFONTS-DroidArabicKufi.ttf'),
+    DroidBold: require('../assets/fonts/ArbFONTS-DroidArabicKufiBold.ttf'),
   });
 
   const onLayoutRootView = useCallback(async () => {
@@ -29,22 +30,22 @@ const Router = () => {
   }
   return (
     <View style={styles.container} onLayout={onLayoutRootView}>
-      <Stack.Navigator
-        screenOptions={{
-          header: (options) => (
-            <CustomHeader showLogo={false} screenName={options.route.name} />
-          ),
-        }}>
-        <Stack.Screen
-          name="Home"
-          component={Home}
-          options={{
-            header: () => <CustomHeader showLogo />,
-          }}
-        />
-        <Stack.Screen name="UserProfile" component={UserProfile} />
-        <Stack.Screen name="Notifications" component={Notifications} />
-      </Stack.Navigator>
+        <Stack.Navigator
+          screenOptions={{
+            header: (options) => (
+              <CustomHeader showLogo={false} screenName={options.route.name} />
+            ),
+          }}>
+          <Stack.Screen
+            name="Home"
+            component={Home}
+            options={{
+              header: () => <CustomHeader showLogo />,
+            }}
+          />
+          <Stack.Screen name="UserProfile" component={UserProfile} />
+          <Stack.Screen name="Notifications" component={Notifications} />
+        </Stack.Navigator>
     </View>
   );
 };

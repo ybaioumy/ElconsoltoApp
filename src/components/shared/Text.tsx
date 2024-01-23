@@ -7,16 +7,24 @@ interface CustomTextProps {
   children?: any;
   isColorPrimary?: boolean;
   size?: number | undefined;
+  bold?: boolean;
 }
 
-const Text = ({ children, isColorPrimary, size, style }: CustomTextProps) => {
+const Text = ({
+  children,
+  isColorPrimary,
+  size,
+  bold,
+  style,
+}: CustomTextProps) => {
   return (
     <RNText
       style={[
         styles.text,
         style,
-        isColorPrimary ? { color: lightTheme.colors.primary } : null,
         { fontSize: size },
+        bold ? { fontFamily: 'DroidBold', fontWeight: '600' } : null,
+        isColorPrimary ? { color: lightTheme.colors.primary } : null,
       ]}>
       {children}
     </RNText>

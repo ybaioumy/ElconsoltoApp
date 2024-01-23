@@ -6,11 +6,10 @@ import { useNavigation } from '@react-navigation/native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { LinearGradient } from 'expo-linear-gradient';
-import { AntDesign } from '@expo/vector-icons';
-import WhiteLogo from '../../images/logos/whiteLogo.png';
 
+import WhiteLogo from '../../images/logos/whiteLogo.png';
 import { Translation } from '../../constants/ar';
-import RenderIcon from '../../helpers/RenderIcon';
+import RenderIcon from './RenderIcon';
 type HeaderProps = {
   showLogo: boolean;
   screenName?: string | undefined;
@@ -25,7 +24,6 @@ const CustomHeader = ({ showLogo, screenName }: HeaderProps) => {
     <LinearGradient
       colors={['#1C3C50', '#26A4A2']}
       style={{
-        position: 'relative',
         paddingTop: insets.top,
         flexDirection: 'row',
         justifyContent: 'space-between',
@@ -79,7 +77,6 @@ const styles = StyleSheet.create({
     padding: 5,
     backgroundColor: '#FFFFFF36',
     borderRadius: 50,
-    
   },
   navigation: {
     flex: 1,

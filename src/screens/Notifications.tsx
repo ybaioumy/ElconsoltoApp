@@ -1,14 +1,16 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import { StyleSheet, View } from 'react-native';
+import React from 'react';
+import Text from '../components/shared/Text';
 
-const Notifications = () => {
+const Notifications = ({ navigation }: any) => {
   return (
     <View>
-      <Text>Notifications</Text>
+      <Text>Hello</Text>
+      
     </View>
-  )
-}
+  );
+};
 
-export default Notifications
+export default Notifications;
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({});
