@@ -37,16 +37,16 @@ const CustomHeader = ({ showLogo, screenName }: HeaderProps) => {
           <Pressable
             onPress={() => navigation.navigate('UserProfile')}
             style={styles.button}>
-            <Ionicons name="person" size={20} color="#fff" />
+            <RenderIcon iconName="person" color="#fff" />
           </Pressable>
           <Image
             source={WhiteLogo}
             style={{ width: 138, height: 40, objectFit: 'contain' }}
           />
           <Pressable
-            onPress={() => navigation.navigate('Notifications')}
+            onPress={() => navigation.navigate('Onboarding')}
             style={styles.button}>
-            <Ionicons name="notifications" size={20} color="#fff" />
+            <RenderIcon iconName="notifications" color="#fff" />
           </Pressable>
         </>
       ) : (
@@ -59,7 +59,7 @@ const CustomHeader = ({ showLogo, screenName }: HeaderProps) => {
               marginBottom: insets.top,
               gap: 18,
             }}>
-            <RenderIcon iconName="rightArrow" />
+            <RenderIcon iconName="rightArrow" color="#fff" />
             <Text style={{ color: '#fff' }} size={19}>
               {screenNameAR}
             </Text>
@@ -74,9 +74,12 @@ export default CustomHeader;
 
 const styles = StyleSheet.create({
   button: {
-    padding: 5,
+    width: 34,
+    height: 34,
     backgroundColor: '#FFFFFF36',
     borderRadius: 50,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   navigation: {
     flex: 1,

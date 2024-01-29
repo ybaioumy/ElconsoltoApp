@@ -11,3 +11,11 @@ export type ArticleItemProps = {
   description: string;
   imageSource: string;
 };
+
+export type ModalFunctions = {
+  handleDismissPress: () => void;
+  handleClosePress: () => void;
+  handleExpandPress: () => void;
+  handleCollapsePress: () => void;
+  handlePresentPress: () => void;
+};

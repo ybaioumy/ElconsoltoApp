@@ -10,7 +10,7 @@ import { lightTheme } from '../../constants/theme';
 import Text from './Text';
 
 type ButtonType = 'primary' | 'secondary' | 'link';
-type ButtonWidth = 'small' | 'medium' | 'large';
+type ButtonWidth = 'small' | 'medium' | 'large' | 'xlarge';
 
 interface ButtonProps extends TouchableOpacityProps {
   type?: ButtonType;
@@ -46,6 +46,8 @@ const Button: FC<ButtonProps> = ({
         return styles.mediumButton;
       case 'large':
         return styles.largeButton;
+      case 'xlarge':
+        return styles.xLargeButton;
       default:
         return {};
     }
@@ -68,7 +70,6 @@ const Button: FC<ButtonProps> = ({
 const styles = StyleSheet.create({
   button: {
     padding: 10,
-    borderRadius: 5,
     justifyContent: 'center',
     alignItems: 'center',
     borderTopLeftRadius: 28,
@@ -90,7 +91,7 @@ const styles = StyleSheet.create({
   smallButton: { width: '25%' },
   mediumButton: { width: '50%' },
   largeButton: { width: '75%' },
-
+  xLargeButton: { width: '90%' },
   buttonText: {
     color: '#fff',
     // fontWeight: 'bold',

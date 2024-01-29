@@ -7,6 +7,7 @@ export const lightTheme = {
     background: '#FFFFFF',
     secondary: '#1C3C50',
     primaryText: '#333',
+    secondaryText: '#A7A7A7',
     purpleColor: '#B66B8A',
     lowOpacity: '#D9F1F3',
     // gradinatPurple: linger gradint  background: linear-gradient(180deg, #4A2938 -22.21%, #AD5C7D 97.14%);

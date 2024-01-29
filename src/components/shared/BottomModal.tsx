@@ -4,7 +4,8 @@ import { BottomSheetModal } from '@gorhom/bottom-sheet';
 import Text from './Text';
 import Button from './Button';
 import { BottomSheetModalProvider } from '@gorhom/bottom-sheet';
-
+import { dynamicContent } from '../../utils/renderModalContent';
+import { useRoute } from '@react-navigation/native';
 const withModalProvider = (Component: React.FC) => () =>
   (
     <BottomSheetModalProvider>
@@ -12,6 +13,8 @@ const withModalProvider = (Component: React.FC) => () =>
     </BottomSheetModalProvider>
   );
 export const BottomModal = () => {
+  const route = useRoute();
+  const screenName = route.name;
   //#region state
   const [enablePanDownToClose, setEnablePanDownToClose] = useState(true);
   const [enableDismissOnClose, setEnableDismissOnClose] = useState(true);
@@ -21,7 +24,7 @@ export const BottomModal = () => {
   const bottomSheetRef = useRef<BottomSheetModal>(null);
 
   // variables
-  const snapPoints = useMemo(() => ['25%', '50%'], []);
+  const snapPoints = useMemo(() => ['25%', '50%', '100%'], []);
 
   //#region callbacks
   const handleChange = useCallback((index: number) => {
@@ -70,9 +73,7 @@ export const BottomModal = () => {
         enableDismissOnClose={enableDismissOnClose}
         onDismiss={handleDismiss}
         onChange={handleChange}>
-        <View>
-          <Text> modal content </Text>
-        </View>
+        <View>{dynamicContent(screenName)}</View>
       </BottomSheetModal>
     </View>
   );

@@ -1,18 +1,22 @@
-import { Button, StyleSheet, Text, View, LogBox } from 'react-native';
+import { StyleSheet, View, LogBox } from 'react-native';
 import React, { useCallback } from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import Home from './screens/Home';
 import UserProfile from './screens/UserProfile';
 import Notifications from './screens/Notifications';
+import CustomHeader from './components/shared/Header';
+import Register from './screens/authScreens/Register';
 
 import { useFonts } from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
-import CustomHeader from './components/shared/Header';
+import Login from './screens/authScreens/Login';
+import OnboardingScreen from './screens/onboardingScreens/Onboarding';
 
 const Stack = createNativeStackNavigator();
 SplashScreen.preventAutoHideAsync();
 LogBox.ignoreLogs(['Reanimated']); // issue wiht latest version of React native with reanimated
+
 const Router = () => {
   const [fontsLoaded, fontError] = useFonts({
     Droid: require('../assets/fonts/ArbFONTS-DroidArabicKufi.ttf'),
@@ -30,22 +34,30 @@ const Router = () => {
   }
   return (
     <View style={styles.container} onLayout={onLayoutRootView}>
-        <Stack.Navigator
-          screenOptions={{
-            header: (options) => (
-              <CustomHeader showLogo={false} screenName={options.route.name} />
-            ),
-          }}>
-          <Stack.Screen
-            name="Home"
-            component={Home}
-            options={{
-              header: () => <CustomHeader showLogo />,
-            }}
-          />
-          <Stack.Screen name="UserProfile" component={UserProfile} />
-          <Stack.Screen name="Notifications" component={Notifications} />
-        </Stack.Navigator>
+      <Stack.Navigator
+        initialRouteName="Onboarding"
+        screenOptions={{
+          header: (options) => (
+            <CustomHeader showLogo={false} screenName={options.route.name} />
+          ),
+        }}>
+        <Stack.Screen
+          name="Home"
+          component={Home}
+          options={{
+            header: () => <CustomHeader showLogo />,
+          }}
+        />
+        <Stack.Screen
+          name="Onboarding"
+          component={OnboardingScreen}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen name="UserProfile" component={UserProfile} />
+        <Stack.Screen name="Notifications" component={Notifications} />
+        <Stack.Screen name="Register" component={Register} />
+        <Stack.Screen name="Login" component={Login} />
+      </Stack.Navigator>
     </View>
   );
 };

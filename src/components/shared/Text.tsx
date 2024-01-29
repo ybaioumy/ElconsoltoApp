@@ -13,7 +13,7 @@ interface CustomTextProps {
 const Text = ({
   children,
   isColorPrimary,
-  size,
+  size = 14,
   bold,
   style,
 }: CustomTextProps) => {
@@ -34,6 +34,7 @@ const Text = ({
 const styles = StyleSheet.create({
   text: {
     fontFamily: 'Droid',
+    textAlign: 'right',
   },
 });
 
