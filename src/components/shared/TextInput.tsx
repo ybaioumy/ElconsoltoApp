@@ -4,27 +4,29 @@ import React, { ReactElement, useState } from 'react';
 import { View, TextInput as RNTextInput, StyleSheet } from 'react-native';
 import Text from './Text';
 import { lightTheme } from '../../constants/theme';
-
-type TextInputProps = {
-  label: string;
-  placeholder: string;
-  secureTextEntry?: boolean;
-  icon: ReactElement;
-};
+import { TextInputProps } from '../../types/types';
 
 const TextInput = ({
   label,
   placeholder,
   secureTextEntry,
   icon,
+  searchInput = false,
+  style,
 }: TextInputProps) => {
   const [inputValue, setInputValue] = useState<string | undefined>('');
   // console.log(inputValue);
   return (
-    <View style={styles.container}>
-      <Text style={styles.label}>{label}</Text>
+    <View style={[styles.container, style]}>
+      {!searchInput ? <Text style={styles.label}>{label}</Text> : null}
 
-      <View style={styles.inputContainer}>
+      <View
+        style={[
+          styles.inputContainer,
+          { flexDirection: searchInput ? 'row-reverse' : 'row' },
+          { borderRadius: searchInput ? 13 : 28 },
+          { justifyContent: searchInput ? 'space-between' : 'flex-end' },
+        ]}>
         <RNTextInput
           style={styles.input}
           placeholder={placeholder}
@@ -32,7 +34,10 @@ const TextInput = ({
           onChangeText={(text) => setInputValue(text)}
           secureTextEntry={secureTextEntry}
         />
-        {icon && React.cloneElement(icon, { style: styles.icon })}
+        {icon &&
+          React.cloneElement(icon, {
+            style: { marginLeft: searchInput ? 0 : 10 },
+          })}
       </View>
     </View>
   );
@@ -49,11 +54,9 @@ const styles = StyleSheet.create({
     color: lightTheme.colors.secondaryText,
   },
   inputContainer: {
-    flexDirection: 'row',
     alignItems: 'center',
     borderColor: '#ECECEC',
     borderWidth: 1,
-    borderRadius: 28,
     paddingHorizontal: 24,
     gap: 13,
     paddingVertical: 15,
@@ -66,7 +69,17 @@ const styles = StyleSheet.create({
     fontFamily: 'Droid',
   },
   icon: {
-    marginLeft: 10,
+    // marginLeft: 10,
+  },
+  shadow: {
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
   },
 });
 

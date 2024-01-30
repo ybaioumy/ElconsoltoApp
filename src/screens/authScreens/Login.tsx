@@ -4,7 +4,10 @@ import TextInput from '../../components/shared/TextInput';
 import RenderIcon from '../../components/shared/RenderIcon';
 import Button from '../../components/shared/Button';
 import Text from '../../components/shared/Text';
+import { useNavigation } from '@react-navigation/native';
+
 const Login = () => {
+  const navigation = useNavigation();
   return (
     <View style={styles.constainer}>
       <Text bold size={20}>
@@ -41,7 +44,9 @@ const Login = () => {
         </View>
       </View>
       <View style={{ alignItems: 'flex-end', alignSelf: 'flex-end' }}>
-        <Button type="link">
+        <Button
+          type="link"
+          onPress={() => navigation.navigate('Favorites' as never)}>
           <Text bold size={17}>
             تخطى
           </Text>

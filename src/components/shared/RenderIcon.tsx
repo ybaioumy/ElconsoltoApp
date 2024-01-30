@@ -5,8 +5,9 @@ import Svg, { Path, G, Circle, Defs, ClipPath } from 'react-native-svg';
 type IconProps = {
   iconName: string;
   color?: string;
+  props?: any;
 };
-const RenderIcon = ({ iconName, color = '#37C0BE' }: IconProps) => {
+const RenderIcon = ({ iconName, color = '#37C0BE', ...props }: IconProps) => {
   switch (iconName) {
     case 'share':
       return <Ionicons name="share-social" size={24} color="#37C0BE" />;
@@ -184,6 +185,23 @@ const RenderIcon = ({ iconName, color = '#37C0BE' }: IconProps) => {
           <Path
             d="M27.413 17.957a2.112 2.112 0 000-2.92l-10-10.313a1.96 1.96 0 00-2.832 0 2.112 2.112 0 000 2.92l6.594 6.793H2c-1.106 0-2 .922-2 2.063 0 1.14.894 2.063 2 2.063h19.169l-6.582 6.793a2.111 2.111 0 000 2.92 1.96 1.96 0 002.832 0l10-10.313-.006-.006z"
             fill="#fff"
+          />
+        </Svg>
+      );
+    case 'search':
+      return (
+        <Svg
+          xmlns="http://www.w3.org/2000/svg"
+          width={18}
+          height={17}
+          viewBox="0 0 18 17"
+          fill="none"
+          {...props}>
+          <Path
+            fillRule="evenodd"
+            clipRule="evenodd"
+            d="M16.311 14.946a.59.59 0 01-.768 0l-4.377-4.056c-.038-.034-.052-.058-.054-.058 0-.01.016-.115.326-.402.308-.286.42-.3.424-.302a.257.257 0 01.072.051l4.376 4.056a.477.477 0 01.001.71zM1.085 6.156c0-2.84 2.493-5.151 5.559-5.151 3.065 0 5.559 2.31 5.559 5.151 0 2.84-2.495 5.151-5.56 5.151-3.065 0-5.558-2.31-5.558-5.151zm15.993 7.37L12.7 9.468a1.39 1.39 0 00-.318-.22 5.788 5.788 0 00.904-3.093C13.287 2.761 10.306 0 6.643 0 2.98 0 0 2.76 0 6.156c0 3.394 2.98 6.156 6.643 6.156 1.304 0 2.52-.351 3.548-.956.056.085.125.168.208.245l4.378 4.056c.304.284.718.443 1.15.442.433 0 .847-.159 1.15-.442.307-.282.479-.665.477-1.066.002-.4-.17-.783-.476-1.066z"
+            fill={color}
           />
         </Svg>
       );

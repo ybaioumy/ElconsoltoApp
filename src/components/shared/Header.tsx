@@ -1,12 +1,11 @@
 import React from 'react';
 import { View, Image, Pressable, StyleSheet } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
-import Text from './Text';
 import { useNavigation } from '@react-navigation/native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { LinearGradient } from 'expo-linear-gradient';
 
+import Text from './Text';
 import WhiteLogo from '../../images/logos/whiteLogo.png';
 import { Translation } from '../../constants/ar';
 import RenderIcon from './RenderIcon';
@@ -19,7 +18,6 @@ const CustomHeader = ({ showLogo, screenName }: HeaderProps) => {
   const insets = useSafeAreaInsets();
   const screenNameAR =
     Translation[(screenName as keyof typeof Translation) || ''];
-
   return (
     <LinearGradient
       colors={['#1C3C50', '#26A4A2']}
@@ -35,7 +33,7 @@ const CustomHeader = ({ showLogo, screenName }: HeaderProps) => {
       {showLogo ? (
         <>
           <Pressable
-            onPress={() => navigation.navigate('UserProfile')}
+            onPress={() => navigation.navigate('UserProfile' as never)}
             style={styles.button}>
             <RenderIcon iconName="person" color="#fff" />
           </Pressable>
@@ -44,7 +42,7 @@ const CustomHeader = ({ showLogo, screenName }: HeaderProps) => {
             style={{ width: 138, height: 40, objectFit: 'contain' }}
           />
           <Pressable
-            onPress={() => navigation.navigate('Onboarding')}
+            onPress={() => navigation.navigate('Search' as never)}
             style={styles.button}>
             <RenderIcon iconName="notifications" color="#fff" />
           </Pressable>
@@ -60,7 +58,7 @@ const CustomHeader = ({ showLogo, screenName }: HeaderProps) => {
               gap: 18,
             }}>
             <RenderIcon iconName="rightArrow" color="#fff" />
-            <Text style={{ color: '#fff' }} size={19}>
+            <Text style={{ color: '#fff' }} size={19} bold>
               {screenNameAR}
             </Text>
           </Pressable>

@@ -8,10 +8,12 @@ import {
 } from 'react-native';
 import PagerView from 'react-native-pager-view';
 import { LinearGradient } from 'expo-linear-gradient';
-import { useNavigation } from '@react-navigation/native'; // Import the necessary modules from React Navigation
+import { useNavigation } from '@react-navigation/native';
 
 import Text from '../../components/shared/Text';
 import RenderIcon from '../../components/shared/RenderIcon';
+import LogoPrimary from '../../images/logos/logoPrimary.png';
+import LogoPink from '../../images/logos/logoPink.png';
 interface Page {
   image: any;
   description: string;
@@ -63,7 +65,7 @@ const OnboardingScreen: React.FC = () => {
       pagerRef.current?.setPage(currentPage + 1);
       setCurrentPage(currentPage + 1);
     } else {
-      navigation.navigate('Login');
+      navigation.navigate('Login' as never);
     }
   };
   const handleSkipToEnd = (): void => {
@@ -71,7 +73,7 @@ const OnboardingScreen: React.FC = () => {
       pagerRef.current?.setPage(totalPages - 1);
       setCurrentPage(totalPages - 1);
     } else {
-      navigation.navigate('Login');
+      navigation.navigate('Login' as never);
     }
   };
   const pagerRef = useRef<PagerView>(null);
@@ -82,10 +84,13 @@ const OnboardingScreen: React.FC = () => {
       colors={
         currentPage <= 1
           ? ['#1A394D', '#74D1D0']
-          : ['rgba(182, 107, 138, 1)', 'rgba(72, 39, 54, 1)']
+          : ['rgba(72, 39, 54, 1)', 'rgba(182, 107, 138, 1)']
       }>
       <View style={styles.logo}>
-        <Image source={require('../../images/logos/whiteLogo.png')} />
+        <Image
+          source={currentPage <= 1 ? LogoPrimary : LogoPink}
+          style={{ width: 185, height: 47, objectFit: 'cover' }}
+        />
       </View>
       <PagerView
         style={styles.viewPager}

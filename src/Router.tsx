@@ -12,6 +12,10 @@ import { useFonts } from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
 import Login from './screens/authScreens/Login';
 import OnboardingScreen from './screens/onboardingScreens/Onboarding';
+import FavoriteTopics from './screens/FavoriteTopics';
+import Article from './screens/Article';
+import Search from './screens/searchScreens/Search';
+import SearchResult from './screens/searchScreens/SearchResult';
 
 const Stack = createNativeStackNavigator();
 SplashScreen.preventAutoHideAsync();
@@ -57,6 +61,14 @@ const Router = () => {
         <Stack.Screen name="Notifications" component={Notifications} />
         <Stack.Screen name="Register" component={Register} />
         <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name="Favorites" component={FavoriteTopics} />
+        <Stack.Screen name="Search" component={Search} />
+        <Stack.Screen name="SearchResult" component={SearchResult} />
+        <Stack.Screen
+          name="Article"
+          component={Article}
+          options={{ headerShown: false }}
+        />
       </Stack.Navigator>
     </View>
   );
@@ -67,6 +79,6 @@ export default Router;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#F9F9F9',
   },
 });

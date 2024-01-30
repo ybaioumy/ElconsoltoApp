@@ -4,15 +4,19 @@ import { ArticleComponentProps } from '../../types/types';
 import Text from './Text';
 import RenderIcon from './RenderIcon';
 import ArticleImage from '../../images/image.jpg';
+import { lightTheme } from '../../constants/theme';
 
 const ArticleComponent: React.FC<ArticleComponentProps> = ({
   imageSource,
   heading,
+  title,
   description,
   vertical,
+  onPress,
 }) => {
   return (
     <Pressable
+      onPress={onPress}
       style={[
         styles.container,
         { flexDirection: vertical ? 'column' : 'row-reverse' },
@@ -41,7 +45,7 @@ const ArticleComponent: React.FC<ArticleComponentProps> = ({
             </Pressable>
           </View>
         </View>
-        <Text style={styles.description}>{description}</Text>
+        <Text size={12.5}>{title}</Text>
       </View>
     </Pressable>
   );
@@ -51,25 +55,23 @@ export default ArticleComponent;
 
 const styles = StyleSheet.create({
   container: {
-    textAlign: 'right',
     gap: 10,
     margin: 10,
     padding: 10,
-    backgroundColor: '#ffffff',
-    borderRadius: 10,
-    shadowColor: '#000',
+    backgroundColor: '#fff',
+    borderRadius: 7,
+    shadowColor: lightTheme.colors.boxShadow,
     shadowOffset: {
       width: 0,
       height: 2,
     },
-    shadowOpacity: 0.25,
+    shadowOpacity: 0.01,
     shadowRadius: 3.84,
-    elevation: 5,
+    elevation: 2,
     alignItems: 'center',
   },
   image: {
     borderRadius: 4,
-    marginRight: 10,
   },
   detailsContainer: {
     flexDirection: 'column',
@@ -81,8 +83,5 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     marginBottom: 5,
-  },
-  description: {
-    fontSize: 16,
   },
 });

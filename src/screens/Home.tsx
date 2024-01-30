@@ -2,30 +2,18 @@ import { StyleSheet, View, FlatList, RefreshControl } from 'react-native';
 import React, { useCallback, useState } from 'react';
 import { useFetchData } from '../hooks/fetchers';
 import ArticleComponent from '../components/shared/ArticleComponent';
-import Button from '../components/shared/Button';
 
 import { ArticleItemProps } from '../types/types';
 import Loader from '../components/shared/Loader';
-import Text from '../components/shared/Text';
-import BottomModal from '../components/shared/BottomModal';
+
+import { useNavigation } from '@react-navigation/native';
+import { StatusBar } from 'expo-status-bar';
+
+import { data } from '../utils/dummyData';
 const Home = () => {
-  // const { data } = useFetchData();
-  // console.log(data);
+  const navigation = useNavigation();
   const [loading, setLoading] = useState<boolean>(false);
-  const data = [
-    {
-      id: 2,
-      heading: 'اخبار',
-      description: '4 علامات تظهر بعد الأكل قد تكشف إصابتك بسرطان خطير',
-      imageSource: 'https://reactnative.dev/img/tiny_logo.png',
-    },
-    {
-      id: 1,
-      heading: 'اخبار',
-      description: '4 علامات تظهر بعد الأكل قد تكشف إصابتك بسرطان خطير',
-      imageSource: 'https://reactnative.dev/img/tiny_logo.png',
-    },
-  ];
+
   const fetchData = useCallback(() => {
     setLoading(true);
 
@@ -42,17 +30,25 @@ const Home = () => {
       setLoading(false);
     }, 1000);
   }, []);
+
+  const navigateToArticleScreen = (articleData: ArticleItemProps) => {
+    navigation.navigate('Article', { articleData });
+  };
+
   const renderItem = ({ item }: { item: ArticleItemProps }) => (
     <ArticleComponent
       heading={item.heading}
       description={item.description}
       imageSource={item.imageSource}
+      title={item.title}
+      onPress={() => navigateToArticleScreen(item)}
       // vertical
     />
   );
 
   return (
     <View style={styles.container}>
+      <StatusBar style="light" />
       <FlatList
         data={data}
         renderItem={renderItem}
@@ -65,8 +61,6 @@ const Home = () => {
           alignItems: 'center',
         }}
       />
-
-      <BottomModal />
     </View>
   );
 };

@@ -11,3 +11,5 @@ export const useFetchData = () => {
 
   return { data, error, isLoading };
 };
+//use
+// const { data } = useFetchData();

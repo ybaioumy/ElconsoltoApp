@@ -2,13 +2,7 @@ import React from 'react';
 import { Text as RNText, StyleSheet } from 'react-native';
 import { lightTheme } from '../../constants/theme';
 
-interface CustomTextProps {
-  style?: any;
-  children?: any;
-  isColorPrimary?: boolean;
-  size?: number | undefined;
-  bold?: boolean;
-}
+import { CustomTextProps } from '../../types/types';
 
 const Text = ({
   children,
