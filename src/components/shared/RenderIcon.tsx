@@ -205,6 +205,86 @@ const RenderIcon = ({ iconName, color = '#37C0BE', ...props }: IconProps) => {
           />
         </Svg>
       );
+    case 'horizontalDots':
+      return (
+        <Svg
+          xmlns="http://www.w3.org/2000/svg"
+          width={16}
+          height={4}
+          viewBox="0 0 16 4"
+          fill="none"
+          {...props}>
+          <Path
+            d="M4 2c0-1.1-.9-2-2-2S0 .9 0 2s.9 2 2 2 2-.9 2-2zm2 0c0 1.1.9 2 2 2s2-.9 2-2-.9-2-2-2-2 .9-2 2zm6 0c0 1.1.9 2 2 2s2-.9 2-2-.9-2-2-2-2 .9-2 2z"
+            fill="#68BCBE"
+          />
+        </Svg>
+      );
+    case 'smallPerson':
+      return (
+        <Svg
+          xmlns="http://www.w3.org/2000/svg"
+          width={8}
+          height={17}
+          viewBox="0 0 8 17"
+          fill="none"
+          {...props}>
+          <Path
+            d="M3.935 3.39c.8 0 1.448-.592 1.448-1.322 0-.73-.648-1.32-1.448-1.32-.8 0-1.45.59-1.45 1.32 0 .73.65 1.321 1.45 1.321z"
+            stroke="#061428"
+            strokeMiterlimit={10}
+          />
+          <Path
+            d="M5.522 15.764l.138-5.17c.532-.175 1.069-.58 1.013-1.09l-.336-3.935c-.056-.51-.562-.927-1.125-.927H2.658c-.562 0-1.069.417-1.125.927l-.336 3.935c-.056.51.48.915 1.013 1.09l.137 5.17"
+            stroke="#061428"
+            strokeMiterlimit={10}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </Svg>
+      );
+    case 'tallPerson':
+      return (
+        <Svg
+          xmlns="http://www.w3.org/2000/svg"
+          width={14}
+          height={32}
+          viewBox="0 0 14 32"
+          fill="none"
+          {...props}>
+          <Path
+            d="M7.215 6.025c1.598 0 2.894-1.181 2.894-2.639 0-1.457-1.296-2.639-2.894-2.639-1.599 0-2.895 1.182-2.895 2.64 0 1.457 1.296 2.638 2.895 2.638z"
+            stroke="#061428"
+            strokeWidth={1.5}
+            strokeMiterlimit={10}
+          />
+          <Path
+            d="M10.386 30.747l.275-10.329c1.063-.349 2.134-1.16 2.022-2.178l-.67-7.86c-.112-1.02-1.124-1.854-2.247-1.854H4.663c-1.123 0-2.135.835-2.247 1.854l-.67 7.86c-.113 1.019.958 1.829 2.022 2.178l.275 10.329"
+            stroke="#061428"
+            strokeWidth={1.5}
+            strokeMiterlimit={10}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </Svg>
+      );
+    case 'checkMark':
+      return (
+        <Svg
+          xmlns="http://www.w3.org/2000/svg"
+          width={10}
+          height={10}
+          viewBox="0 0 10 10"
+          fill="none"
+          {...props}>
+          <Path
+            fillRule="evenodd"
+            clipRule="evenodd"
+            d="M4.164 7.199L1.683 4.718a.4.4 0 00-.566.565l2.8 2.8a.4.4 0 00.597-.036l4.4-5.6a.4.4 0 00-.628-.494L4.164 7.2z"
+            fill="#fff"
+          />
+        </Svg>
+      );
     default:
       return null;
   }

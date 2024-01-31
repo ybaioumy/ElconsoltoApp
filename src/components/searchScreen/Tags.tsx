@@ -17,7 +17,7 @@ const Tag: React.FC<TagProps> = ({ tag }) => {
   return (
     <Pressable onPress={handleTagPress}>
       <View style={styles.tagContainer}>
-        <Text style={styles.tagText}>{tag}</Text>
+        <Text size={13} style={styles.tagText}>{`# ${tag}`}</Text>
       </View>
     </Pressable>
   );
@@ -60,8 +60,6 @@ const styles = StyleSheet.create({
     elevation: 2,
   },
   tagText: {
-    fontSize: 16,
-    fontWeight: 'bold',
     color: '#6F7789',
   },
 });

@@ -3,4 +3,6 @@ export const Translation = {
   Notifications: 'الاشعارات',
   Search: 'بحث',
   SearchResult: 'بحث',
+  Reminders: 'التذكير بالمواعيد',
+  BMI: 'حاسبة مؤشر كتلة الجسم BMI',
 } as const;

@@ -39,6 +39,9 @@ export type TextInputProps = {
   icon: ReactElement;
   searchInput?: boolean | undefined;
   style?: any;
+  // Add the value prop to the interface
+  value?: string;
+  onChangeText?: (text: string) => void;
 };
 
 export type ArticleScreenRouteParams = {

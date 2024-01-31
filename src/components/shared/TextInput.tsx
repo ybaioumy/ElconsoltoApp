@@ -13,25 +13,28 @@ const TextInput = ({
   icon,
   searchInput = false,
   style,
+  value,
+  onChangeText,
 }: TextInputProps) => {
   const [inputValue, setInputValue] = useState<string | undefined>('');
   // console.log(inputValue);
   return (
     <View style={[styles.container, style]}>
       {!searchInput ? <Text style={styles.label}>{label}</Text> : null}
-
       <View
         style={[
           styles.inputContainer,
           { flexDirection: searchInput ? 'row-reverse' : 'row' },
           { borderRadius: searchInput ? 13 : 28 },
           { justifyContent: searchInput ? 'space-between' : 'flex-end' },
+          // searchInput && styles.shadow,
+          // { borderWidth: searchInput ? 0 : 1 },
         ]}>
         <RNTextInput
           style={styles.input}
           placeholder={placeholder}
-          value={inputValue}
-          onChangeText={(text) => setInputValue(text)}
+          value={value}
+          onChangeText={onChangeText}
           secureTextEntry={secureTextEntry}
         />
         {icon &&

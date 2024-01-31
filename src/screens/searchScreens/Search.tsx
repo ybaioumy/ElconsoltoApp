@@ -9,7 +9,13 @@ import { AntDesign } from '@expo/vector-icons';
 import { lightTheme } from '../../constants/theme';
 import Tags from '../../components/searchScreen/Tags';
 
-const tags = ['React', 'JavaScript', 'TypeScript', 'React Native', 'CSS'];
+const tags = [
+  'اعراض السكر',
+  ' علاج الامساك ',
+  ' جرثومة المعدة',
+  ' ارتفاع الضغط',
+  ' اعراض الصداع',
+];
 
 const Search = () => {
   return (
@@ -21,7 +27,7 @@ const Search = () => {
           alignItems: 'center',
         }}>
         <TextInput
-          icon={<RenderIcon iconName="search" />}
+          icon={<RenderIcon iconName="search" color="#878B91" />}
           placeholder="بحث"
           searchInput
           style={{

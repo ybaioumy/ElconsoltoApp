@@ -16,6 +16,8 @@ import FavoriteTopics from './screens/FavoriteTopics';
 import Article from './screens/Article';
 import Search from './screens/searchScreens/Search';
 import SearchResult from './screens/searchScreens/SearchResult';
+import Reminders from './screens/Reminders';
+import BMI from './screens/calculators/BMI';
 
 const Stack = createNativeStackNavigator();
 SplashScreen.preventAutoHideAsync();
@@ -39,7 +41,7 @@ const Router = () => {
   return (
     <View style={styles.container} onLayout={onLayoutRootView}>
       <Stack.Navigator
-        initialRouteName="Onboarding"
+        initialRouteName="BMI"
         screenOptions={{
           header: (options) => (
             <CustomHeader showLogo={false} screenName={options.route.name} />
@@ -59,11 +61,13 @@ const Router = () => {
         />
         <Stack.Screen name="UserProfile" component={UserProfile} />
         <Stack.Screen name="Notifications" component={Notifications} />
+        <Stack.Screen name="Reminders" component={Reminders} />
         <Stack.Screen name="Register" component={Register} />
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="Favorites" component={FavoriteTopics} />
         <Stack.Screen name="Search" component={Search} />
         <Stack.Screen name="SearchResult" component={SearchResult} />
+        <Stack.Screen name="BMI" component={BMI} />
         <Stack.Screen
           name="Article"
           component={Article}

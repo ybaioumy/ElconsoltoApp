@@ -60,7 +60,6 @@ const styles = StyleSheet.create({
     padding: 10,
     backgroundColor: '#fff',
     borderRadius: 7,
-    shadowColor: lightTheme.colors.boxShadow,
     shadowOffset: {
       width: 0,
       height: 2,

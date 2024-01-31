@@ -42,7 +42,7 @@ const CustomHeader = ({ showLogo, screenName }: HeaderProps) => {
             style={{ width: 138, height: 40, objectFit: 'contain' }}
           />
           <Pressable
-            onPress={() => navigation.navigate('Search' as never)}
+            onPress={() => navigation.navigate('BMI' as never)}
             style={styles.button}>
             <RenderIcon iconName="notifications" color="#fff" />
           </Pressable>
