@@ -5,22 +5,23 @@ import RenderIcon from '../shared/RenderIcon';
 import SliderThumb from '../../images/calculators/Ellipse.png';
 import Text from '../shared/Text';
 
-interface CustomSliderProps {
+type CustomSliderProps = {
   leftIcon: string;
   rightIcon: string;
   title: string;
-}
+  unit: string;
+};
 
 const CustomSlider: React.FC<CustomSliderProps> = ({
   title,
   leftIcon,
   rightIcon,
+  unit,
 }) => {
   const [value, setValue] = useState<number>(25);
   const [sliderWidth, setSliderWidth] = useState<number>(200);
 
   const handleLayout = (event: any) => {
-    // Update the slider width when the component layout changes
     const { width } = event.nativeEvent.layout;
     setSliderWidth(width);
   };
@@ -60,7 +61,7 @@ const CustomSlider: React.FC<CustomSliderProps> = ({
               color: 'rgba(6, 20, 40, 1)',
             },
           ]}>
-          {value}
+          {`${value} ${unit}`}
         </Text>
       </View>
     </View>
@@ -69,7 +70,7 @@ const CustomSlider: React.FC<CustomSliderProps> = ({
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    // flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -82,7 +83,6 @@ const styles = StyleSheet.create({
   valueText: {
     position: 'absolute',
     top: -10,
-    // marginLeft: 10,
   },
 });
 

@@ -41,7 +41,7 @@ const Router = () => {
   return (
     <View style={styles.container} onLayout={onLayoutRootView}>
       <Stack.Navigator
-        initialRouteName="BMI"
+        initialRouteName="Onboarding"
         screenOptions={{
           header: (options) => (
             <CustomHeader showLogo={false} screenName={options.route.name} />

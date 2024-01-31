@@ -1,11 +1,17 @@
 import React, { useState } from 'react';
-import { View, StyleSheet, Image, TouchableOpacity } from 'react-native';
-import { FontAwesome5 } from '@expo/vector-icons'; // Assuming you're using Expo for icons
+import {
+  View,
+  StyleSheet,
+  Image,
+  TouchableOpacity,
+  Pressable,
+} from 'react-native';
 import CustomSlider from './Slider';
 import Text from '../shared/Text';
 import RenderIcon from '../shared/RenderIcon';
+import Button from '../shared/Button';
 const BMICalculator: React.FC = () => {
-  const [gender, setGender] = useState<string>('male'); // Default gender is male
+  const [gender, setGender] = useState<string>('male');
 
   const handleGenderSelect = (selectedGender: string) => {
     setGender(selectedGender);
@@ -13,8 +19,11 @@ const BMICalculator: React.FC = () => {
 
   return (
     <View style={styles.container}>
+      <Text size={17} bold>
+        يجب اعطاء بعض المعلومات الاساسية
+      </Text>
       <View style={styles.genderContainer}>
-        <TouchableOpacity
+        <Pressable
           style={[
             styles.genderButton,
             gender === 'male' ? styles.selectedGender : null,
@@ -30,8 +39,8 @@ const BMICalculator: React.FC = () => {
             style={styles.genderIcon}
           />
           <Text>ذكر</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
+        </Pressable>
+        <Pressable
           style={[
             styles.genderButton,
             gender === 'female' ? styles.selectedGender : null,
@@ -47,18 +56,33 @@ const BMICalculator: React.FC = () => {
             style={styles.genderIcon}
           />
           <Text>انثي</Text>
-        </TouchableOpacity>
+        </Pressable>
       </View>
-      <CustomSlider
-        title="Height"
-        leftIcon="smallPerson"
-        rightIcon="tallPerson"
-      />
-      <CustomSlider
-        title="Weight"
-        leftIcon="smallPerson"
-        rightIcon="tallPerson"
-      />
+      <View style={{ width: '100%' }}>
+        <CustomSlider
+          title="السن"
+          leftIcon="smallPerson"
+          rightIcon="tallPerson"
+          unit=""
+        />
+        <CustomSlider
+          title="الطول"
+          leftIcon="smallPerson"
+          rightIcon="tallPerson"
+          unit="cm"
+        />
+        <CustomSlider
+          title="الوزن"
+          leftIcon="smallPerson"
+          rightIcon="tallPerson"
+          unit="kg"
+        />
+      </View>
+      <Button style={{ backgroundColor: '#37C0BE' }}>
+        <Text style={{ color: '#FFF' }} bold size={18}>
+          النتيجة
+        </Text>
+      </Button>
     </View>
   );
 };
@@ -66,9 +90,14 @@ const BMICalculator: React.FC = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
+    justifyContent: 'space-between',
     alignItems: 'center',
     paddingHorizontal: 20,
+    paddingVertical: 20,
+    backgroundColor: '#fff',
+    borderRadius: 27,
+    width: '100%',
+    alignSelf: 'center',
   },
   genderContainer: {
     flexDirection: 'row',
