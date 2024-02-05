@@ -12,7 +12,7 @@ import Text from '../shared/Text';
 import RenderIcon from '../shared/RenderIcon';
 import Button from '../shared/Button';
 import { lightTheme } from '../../constants/theme';
-const BMICalculator: React.FC = () => {
+const WaterIntakeCalculator: React.FC = () => {
   const [gender, setGender] = useState<string>('male');
 
   const handleGenderSelect = (selectedGender: string) => {
@@ -153,4 +153,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default BMICalculator;
+export default WaterIntakeCalculator;

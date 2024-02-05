@@ -109,7 +109,12 @@ const OnboardingScreen: React.FC = () => {
             style={[
               styles.progressBar,
               {
-                backgroundColor: index <= currentPage ? '#048482' : '#73D2D3',
+                backgroundColor:
+                  index <= currentPage
+                    ? currentPage <= 1
+                      ? '#048482'
+                      : '#4F2C3C'
+                    : 'rgba(0, 0, 0, 0.2)',
               },
             ]}
           />
@@ -147,7 +152,7 @@ const styles = StyleSheet.create({
     // backgroundColor: '#000',
   },
   viewPager: {
-    flex: 2,
+    flex: 3,
     width: '100%',
     alignItems: 'flex-start',
     justifyContent: 'center',
@@ -164,7 +169,7 @@ const styles = StyleSheet.create({
     marginLeft: '10%',
   },
   logo: {
-    flex: 0.6,
+    flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
   },

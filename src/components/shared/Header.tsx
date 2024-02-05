@@ -6,7 +6,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { LinearGradient } from 'expo-linear-gradient';
 
 import Text from './Text';
-import WhiteLogo from '../../images/logos/whiteLogo.png';
+import WhiteLogo from '../../images/logos/logoWhite.png';
 import { Translation } from '../../constants/ar';
 import RenderIcon from './RenderIcon';
 type HeaderProps = {
@@ -42,7 +42,7 @@ const CustomHeader = ({ showLogo, screenName }: HeaderProps) => {
             style={{ width: 138, height: 40, objectFit: 'contain' }}
           />
           <Pressable
-            onPress={() => navigation.navigate('BMI' as never)}
+            onPress={() => navigation.navigate('Notifications' as never)}
             style={styles.button}>
             <RenderIcon iconName="notifications" color="#fff" />
           </Pressable>

@@ -10,6 +10,7 @@ import { useNavigation } from '@react-navigation/native';
 import { StatusBar } from 'expo-status-bar';
 
 import { data } from '../utils/dummyData';
+import CustomBottomTabBar from '../components/shared/BottomNavigationTabs';
 const Home = () => {
   const navigation = useNavigation();
   const [loading, setLoading] = useState<boolean>(false);
@@ -32,7 +33,7 @@ const Home = () => {
   }, []);
 
   const navigateToArticleScreen = (articleData: ArticleItemProps) => {
-    navigation.navigate('Article', { articleData });
+    navigation.navigate('Article', { articleData } );
   };
 
   const renderItem = ({ item }: { item: ArticleItemProps }) => (
@@ -47,21 +48,24 @@ const Home = () => {
   );
 
   return (
-    <View style={styles.container}>
-      <StatusBar style="light" />
-      <FlatList
-        data={data}
-        renderItem={renderItem}
-        keyExtractor={(item) => `${item.id}`}
-        ListFooterComponent={loading ? <Loader /> : null}
-        refreshControl={
-          <RefreshControl refreshing={loading} onRefresh={fetchData} />
-        }
-        ListFooterComponentStyle={{
-          alignItems: 'center',
-        }}
-      />
-    </View>
+    <>
+      <View style={styles.container}>
+        <StatusBar style="light" />
+        <FlatList
+          data={data}
+          renderItem={renderItem}
+          keyExtractor={(item) => `${item.id}`}
+          refreshControl={
+            <RefreshControl refreshing={loading} onRefresh={fetchData} />
+          }
+          ListFooterComponent={loading ? <Loader /> : null}
+          ListFooterComponentStyle={{
+            alignItems: 'center',
+          }}
+        />
+      </View>
+      {/* <CustomBottomTabBar /> */}
+    </>
   );
 };
 

@@ -1,4 +1,4 @@
-import { StyleSheet, View } from 'react-native';
+import { Pressable, StyleSheet, View } from 'react-native';
 import React from 'react';
 import TextInput from '../../components/shared/TextInput';
 import RenderIcon from '../../components/shared/RenderIcon';
@@ -25,27 +25,22 @@ const Search = () => {
           flexDirection: 'row-reverse',
           justifyContent: 'space-between',
           alignItems: 'center',
+          gap: 14,
         }}>
         <TextInput
           icon={<RenderIcon iconName="search" color="#878B91" />}
           placeholder="بحث"
           searchInput
           style={{
-            flex: 0.9,
+            flex: 1,
             alignSelf: 'center',
             marginTop: 20,
             backGroundColor: '#000',
           }}
         />
-        <Button
-          borderRadius="semiRounded"
-          style={{
-            width: 44,
-            height: 44,
-            backgroundColor: lightTheme.colors.primary,
-          }}>
-          <AntDesign name="filter" size={24} color="white" />
-        </Button>
+        <Pressable onPress={() => console.log('pressed')}>
+          <RenderIcon iconName="filter" />
+        </Pressable>
       </View>
 
       <Text size={18} bold style={{ marginBottom: 30 }}>

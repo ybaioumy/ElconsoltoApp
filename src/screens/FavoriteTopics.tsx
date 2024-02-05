@@ -8,17 +8,17 @@ const FavoriteTopics = () => {
   const navigation = useNavigation();
   return (
     <View style={styles.container}>
-      <Text size={18} bold>
-        ما الاقسام التي تهتم بها و تفضل متابعة اخبارها ؟
-      </Text>
       <View
         style={{
           flex: 1,
           width: '100%',
           alignItems: 'center',
-          justifyContent: 'center',
+          // justifyContent: 'center',
           gap: 20,
         }}>
+        <Text size={18} bold>
+          ما الاقسام التي تهتم بها و تفضل متابعة اخبارها ؟
+        </Text>
         <Button width="xlarge" borderRadius="semiRounded">
           <Text>امراض مزمنة</Text>
         </Button>
@@ -59,9 +59,8 @@ export default FavoriteTopics;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
+
     paddingVertical: 25,
-    gap: 20,
+    // gap: 20,
   },
 });

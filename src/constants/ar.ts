@@ -5,4 +5,6 @@ export const Translation = {
   SearchResult: 'بحث',
   Reminders: 'التذكير بالمواعيد',
   BMI: 'حاسبة مؤشر كتلة الجسم BMI',
+  Settings: 'الاعدادت',
+  Sections: 'اقسام كونسلتو',
 } as const;

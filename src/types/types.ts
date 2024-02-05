@@ -18,6 +18,9 @@ export type ArticleItemProps = {
   authorName?: string | undefined;
 };
 
+export type ArticleScreenRouteParams = {
+  articleData: ArticleItemProps;
+};
 export type CustomTextProps = {
   style?: any;
   children?: any;
@@ -39,11 +42,31 @@ export type TextInputProps = {
   icon: ReactElement;
   searchInput?: boolean | undefined;
   style?: any;
-  // Add the value prop to the interface
   value?: string;
   onChangeText?: (text: string) => void;
 };
 
-export type ArticleScreenRouteParams = {
-  articleData: ArticleItemProps;
+export type SectionItem = {
+  key: string;
+  label: string;
+  icon: string;
+  screen?: string;
+  isLink?: boolean;
+  linkType?: 'email' | 'phone';
+};
+
+export type Section = {
+  title: string;
+  data: SectionItem[];
+};
+
+export type SettingItem = {
+  key: string;
+  label: string;
+  icon: string;
+  screen: string;
+};
+export type SettingSection = {
+  title: string;
+  data: SettingItem[];
 };

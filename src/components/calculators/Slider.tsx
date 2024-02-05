@@ -43,8 +43,9 @@ const CustomSlider: React.FC<CustomSliderProps> = ({
           style={{ width: '100%', height: 40 }}
           minimumValue={0}
           maximumValue={100}
-          //   thumbTintColor="#FF0000"
-          thumbImage={SliderThumb}
+          // thumbTintColor="#FF0000"
+          // thumbImage={SliderThumb}
+          // thumbTintColor="#000"
           value={value}
           step={1}
           onValueChange={(value) => setValue(value)}
@@ -82,7 +83,7 @@ const styles = StyleSheet.create({
   },
   valueText: {
     position: 'absolute',
-    top: -10,
+    top: -20,
   },
 });
 

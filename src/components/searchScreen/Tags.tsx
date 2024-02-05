@@ -49,15 +49,14 @@ const styles = StyleSheet.create({
     margin: 4,
     backgroundColor: '#fff',
     borderRadius: 6,
-    shadowColor: lightTheme.colors.boxShadow,
-
+    shadowColor: 'rgba(0, 0, 0, 0.07)',
     shadowOffset: {
       width: 0,
       height: 2,
     },
     shadowOpacity: 0.01,
     shadowRadius: 3.84,
-    elevation: 2,
+    elevation: 4,
   },
   tagText: {
     color: '#6F7789',

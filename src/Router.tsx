@@ -18,7 +18,9 @@ import Search from './screens/searchScreens/Search';
 import SearchResult from './screens/searchScreens/SearchResult';
 import Reminders from './screens/Reminders';
 import BMI from './screens/calculators/BMI';
-
+import CustomBottomTabBar from './components/shared/BottomNavigationTabs';
+import Settings from './screens/Settings';
+import Sections from './screens/Sections';
 const Stack = createNativeStackNavigator();
 SplashScreen.preventAutoHideAsync();
 LogBox.ignoreLogs(['Reanimated']); // issue wiht latest version of React native with reanimated
@@ -68,12 +70,15 @@ const Router = () => {
         <Stack.Screen name="Search" component={Search} />
         <Stack.Screen name="SearchResult" component={SearchResult} />
         <Stack.Screen name="BMI" component={BMI} />
+        <Stack.Screen name="Sections" component={Sections} />
+        <Stack.Screen name="Settings" component={Settings} />
         <Stack.Screen
           name="Article"
           component={Article}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>
+      <CustomBottomTabBar />
     </View>
   );
 };
@@ -84,5 +89,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#F9F9F9',
+    // position: 'relative',
   },
 });

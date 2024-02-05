@@ -34,7 +34,10 @@ const Login = () => {
         <Button type="primary" width="xlarge">
           <Text bold>تسجيل الدخول</Text>
         </Button>
-        <Button type="secondary" width="xlarge">
+        <Button
+          type="secondary"
+          width="xlarge"
+          onPress={() => navigation.navigate('Register' as never)}>
           <Text bold> انشاء حساب</Text>
         </Button>
         <View style={{ flexDirection: 'row', gap: 30 }}>

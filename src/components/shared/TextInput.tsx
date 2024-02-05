@@ -1,7 +1,12 @@
 // ReusableTextInput.js
 
 import React, { ReactElement, useState } from 'react';
-import { View, TextInput as RNTextInput, StyleSheet } from 'react-native';
+import {
+  View,
+  TextInput as RNTextInput,
+  StyleSheet,
+  Keyboard,
+} from 'react-native';
 import Text from './Text';
 import { lightTheme } from '../../constants/theme';
 import { TextInputProps } from '../../types/types';
@@ -27,8 +32,8 @@ const TextInput = ({
           { flexDirection: searchInput ? 'row-reverse' : 'row' },
           { borderRadius: searchInput ? 13 : 28 },
           { justifyContent: searchInput ? 'space-between' : 'flex-end' },
-          // searchInput && styles.shadow,
-          // { borderWidth: searchInput ? 0 : 1 },
+          { borderWidth: searchInput ? 0 : 1 },
+          // searchInput && lightTheme.shadow,
         ]}>
         <RNTextInput
           style={styles.input}
@@ -57,32 +62,25 @@ const styles = StyleSheet.create({
     color: lightTheme.colors.secondaryText,
   },
   inputContainer: {
+    backgroundColor: '#fff',
     alignItems: 'center',
     borderColor: '#ECECEC',
     borderWidth: 1,
     paddingHorizontal: 24,
     gap: 13,
-    paddingVertical: 15,
+    // height:48
+    paddingVertical: 10,
     // height: 56,
   },
   input: {
     flex: 1,
-    height: '100%',
+    backgroundColor: 'transparent',
+    // height: '100%',
     textAlign: 'right',
     fontFamily: 'Droid',
   },
   icon: {
     // marginLeft: 10,
-  },
-  shadow: {
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-    elevation: 5,
   },
 });
 
