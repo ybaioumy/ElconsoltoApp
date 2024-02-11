@@ -12,7 +12,6 @@ import { lightTheme } from '../../constants/theme';
 import { AntDesign } from '@expo/vector-icons';
 import Text from '../../components/shared/Text';
 
-
 const SearchResult = ({ route, navigation }: any) => {
   const { tag } = route.params || {};
   const [inputValue, setInputValue] = useState<string | undefined>('');
@@ -24,8 +23,6 @@ const SearchResult = ({ route, navigation }: any) => {
 
     return unsubscribeFocus;
   }, [navigation, tag]);
- 
-
 
   return (
     <View style={styles.container}>
@@ -39,6 +36,7 @@ const SearchResult = ({ route, navigation }: any) => {
           icon={<RenderIcon iconName="search" color="#878B91" />}
           placeholder="بحث"
           searchInput
+          backgroundColor="#FFF"
           value={inputValue}
           onChangeText={(text) => setInputValue(text)}
           style={{

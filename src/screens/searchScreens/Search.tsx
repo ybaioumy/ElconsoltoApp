@@ -31,6 +31,7 @@ const Search = () => {
           icon={<RenderIcon iconName="search" color="#878B91" />}
           placeholder="بحث"
           searchInput
+          backgroundColor="#FFF"
           style={{
             flex: 1,
             alignSelf: 'center',

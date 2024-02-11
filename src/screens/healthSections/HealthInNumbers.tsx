@@ -6,17 +6,15 @@ import {
   FlatList,
   ScrollView,
 } from 'react-native';
-import Text from '../components/shared/Text';
-import { sections } from '../lib/staticData';
-import { SectionsSection } from '../types/types';
-import { lightTheme } from '../constants/theme';
-import RenderIcon from '../components/shared/RenderIcon';
-import RenderSectionItem from '../components/sections/RenderSectionItem';
+import Text from '../../components/shared/Text';
+import { calculators } from '../../lib/staticData';
+import { lightTheme } from '../../constants/theme';
+import RenderSectionItem from '../../components/sections/RenderSectionItem';
 
-const Sections: React.FC = () => {
+const HealthInNumbers: React.FC = () => {
   return (
     <ScrollView style={styles.container}>
-      {sections.map(({ title, data }) => (
+      {calculators.map(({ title, data }) => (
         <View key={title} style={styles.sectionContainer}>
           <View style={styles.sectionHeaderContainer}>
             <Text style={{ marginRight: 10 }} size={16}>
@@ -52,4 +50,4 @@ const styles = StyleSheet.create({
   sectionContainer: { marginBottom: 20 },
 });
 
-export default Sections;
+export default HealthInNumbers;

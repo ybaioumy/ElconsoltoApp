@@ -18,7 +18,6 @@ interface ButtonProps extends TouchableOpacityProps {
   width?: ButtonWidth;
   borderRadius?: ButtonRadius;
   children: ReactNode;
-  selected?: boolean; 
 }
 
 const Button: FC<ButtonProps> = ({
@@ -26,22 +25,15 @@ const Button: FC<ButtonProps> = ({
   width = 'medium',
   borderRadius = 'rounded',
   children,
-  selected = false, 
+
   style,
   ...restProps
 }) => {
-  const [isSelected, setIsSelected] = useState(selected);
-
-  const handlePress = () => {
-    setIsSelected(!isSelected);
-  };
-
   const getButtonStyle = (): ViewStyle | TextStyle => {
     switch (type) {
       case 'primary':
-        return isSelected
-          ? styles.primaryButton
-          : styles.primaryButtonUnselected;
+        return styles.primaryButton;
+
       case 'secondary':
         return styles.secondaryButton;
       case 'link':
@@ -75,10 +67,9 @@ const Button: FC<ButtonProps> = ({
         style,
         { borderRadius: borderRadius === 'rounded' ? 28 : 12 },
       ]}
-      onPress={handlePress}
       {...restProps}>
       <Text
-        style={[styles.buttonText, { color: isSelected ? '#FFF' : '#000' }]}
+        style={[styles.buttonText]}
         size={18}
         isColorPrimary={type === 'link' || type === 'secondary'}>
         {children}
@@ -114,7 +105,7 @@ const styles = StyleSheet.create({
   largeButton: { width: '75%' },
   xLargeButton: { width: '90%' },
   buttonText: {
-    // color: '#fff',
+    color: '#fff',
     // fontWeight: 'bold',
   },
 });

@@ -4,7 +4,7 @@ import { QueryClientProvider, QueryClient } from '@tanstack/react-query';
 import Router from './src/Router';
 import { lightTheme } from './src/constants/theme';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
-
+import { BottomSheetModalProvider } from '@gorhom/bottom-sheet';
 const queryClient = new QueryClient();
 export default function App() {
   return (
@@ -12,7 +12,9 @@ export default function App() {
       <StatusBar style="light" />
       <NavigationContainer theme={lightTheme}>
         <QueryClientProvider client={queryClient}>
-          <Router />
+          <BottomSheetModalProvider>
+            <Router />
+          </BottomSheetModalProvider>
         </QueryClientProvider>
       </NavigationContainer>
     </GestureHandlerRootView>

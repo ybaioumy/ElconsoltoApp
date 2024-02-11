@@ -10,7 +10,6 @@ import { useNavigation } from '@react-navigation/native';
 import { StatusBar } from 'expo-status-bar';
 
 import { data } from '../utils/dummyData';
-import CustomBottomTabBar from '../components/shared/BottomNavigationTabs';
 const Home = () => {
   const navigation = useNavigation();
   const [loading, setLoading] = useState<boolean>(false);
@@ -32,10 +31,9 @@ const Home = () => {
     }, 1000);
   }, []);
 
-  const navigateToArticleScreen = (articleData: ArticleItemProps) => {
-    navigation.navigate('Article', { articleData } );
-  };
-
+const navigateToArticleScreen = (articleData: ArticleItemProps) => {
+  navigation.navigate<never>('Article', { articleData });
+};
   const renderItem = ({ item }: { item: ArticleItemProps }) => (
     <ArticleComponent
       heading={item.heading}
@@ -64,7 +62,6 @@ const Home = () => {
           }}
         />
       </View>
-      {/* <CustomBottomTabBar /> */}
     </>
   );
 };

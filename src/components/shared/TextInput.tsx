@@ -19,10 +19,9 @@ const TextInput = ({
   searchInput = false,
   style,
   value,
+  backgroundColor,
   onChangeText,
 }: TextInputProps) => {
-  const [inputValue, setInputValue] = useState<string | undefined>('');
-  // console.log(inputValue);
   return (
     <View style={[styles.container, style]}>
       {!searchInput ? <Text style={styles.label}>{label}</Text> : null}
@@ -33,6 +32,7 @@ const TextInput = ({
           { borderRadius: searchInput ? 13 : 28 },
           { justifyContent: searchInput ? 'space-between' : 'flex-end' },
           { borderWidth: searchInput ? 0 : 1 },
+          { backgroundColor: backgroundColor },
           // searchInput && lightTheme.shadow,
         ]}>
         <RNTextInput
@@ -62,7 +62,6 @@ const styles = StyleSheet.create({
     color: lightTheme.colors.secondaryText,
   },
   inputContainer: {
-    backgroundColor: '#fff',
     alignItems: 'center',
     borderColor: '#ECECEC',
     borderWidth: 1,

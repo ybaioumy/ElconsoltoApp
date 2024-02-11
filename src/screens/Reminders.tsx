@@ -25,7 +25,7 @@ const REMINDERS_DATA: ReminderItem[] = [
   },
 ];
 
-const Reminders: React.FC = () => {
+const RemindersListing: React.FC = () => {
   const renderItem = (item: ReminderItem) => (
     <View style={styles.item}>
       <View style={styles.leftContent}>
@@ -78,4 +78,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Reminders;
+export default RemindersListing;

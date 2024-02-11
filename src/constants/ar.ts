@@ -7,4 +7,6 @@ export const Translation = {
   BMI: 'حاسبة مؤشر كتلة الجسم BMI',
   Settings: 'الاعدادت',
   Sections: 'اقسام كونسلتو',
+  MedicineReminder: 'التذكير بالادوية',
+  Health: 'التذكير بالادوية',
 } as const;

@@ -24,10 +24,17 @@ const dynamicContent = (screenName: string) => {
         </View>
       );
       break;
+    case 'MedicineReminder':
+      content = (
+        <View>
+          <Text>Profile</Text>
+        </View>
+      );
+      break;
     default:
       content = (
         <View>
-          <Text>Home</Text>
+          <Text>else</Text>
         </View>
       );
       break;

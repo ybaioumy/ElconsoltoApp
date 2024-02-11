@@ -16,14 +16,17 @@ import FavoriteTopics from './screens/FavoriteTopics';
 import Article from './screens/Article';
 import Search from './screens/searchScreens/Search';
 import SearchResult from './screens/searchScreens/SearchResult';
-import Reminders from './screens/Reminders';
-import BMI from './screens/calculators/BMI';
+import BMI from './screens/healthSections/BMI';
 import CustomBottomTabBar from './components/shared/BottomNavigationTabs';
 import Settings from './screens/Settings';
 import Sections from './screens/Sections';
+import MedicineReminder from './screens/healthSections/MedicineReminder';
+import RemindersListing from './screens/Reminders';
+import HealthInNumbers from './screens/healthSections/HealthInNumbers';
 const Stack = createNativeStackNavigator();
 SplashScreen.preventAutoHideAsync();
 LogBox.ignoreLogs(['Reanimated']); // issue wiht latest version of React native with reanimated
+LogBox.ignoreLogs(['VirtualizedLists should never be nested']);
 
 const Router = () => {
   const [fontsLoaded, fontError] = useFonts({
@@ -63,15 +66,18 @@ const Router = () => {
         />
         <Stack.Screen name="UserProfile" component={UserProfile} />
         <Stack.Screen name="Notifications" component={Notifications} />
-        <Stack.Screen name="Reminders" component={Reminders} />
         <Stack.Screen name="Register" component={Register} />
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="Favorites" component={FavoriteTopics} />
         <Stack.Screen name="Search" component={Search} />
         <Stack.Screen name="SearchResult" component={SearchResult} />
         <Stack.Screen name="BMI" component={BMI} />
+        {/* <Stack.Screen name="Health" component={BMI} /> */}
         <Stack.Screen name="Sections" component={Sections} />
         <Stack.Screen name="Settings" component={Settings} />
+        <Stack.Screen name="MedicineReminder" component={MedicineReminder} />
+        <Stack.Screen name="Reminders" component={RemindersListing} />
+        <Stack.Screen name="Health" component={HealthInNumbers} />
         <Stack.Screen
           name="Article"
           component={Article}

@@ -43,10 +43,11 @@ export type TextInputProps = {
   searchInput?: boolean | undefined;
   style?: any;
   value?: string;
+  backgroundColor?: string
   onChangeText?: (text: string) => void;
 };
 
-export type SectionItem = {
+export type SettingsItem = {
   key: string;
   label: string;
   icon: string;
@@ -55,18 +56,18 @@ export type SectionItem = {
   linkType?: 'email' | 'phone';
 };
 
-export type Section = {
+export type SettingsSection = {
   title: string;
-  data: SectionItem[];
+  data: SettingsItem[];
 };
 
-export type SettingItem = {
+export type SectionsItem = {
   key: string;
   label: string;
-  icon: string;
+  icon?: string;
   screen: string;
 };
-export type SettingSection = {
+export type SectionsSection = {
   title: string;
-  data: SettingItem[];
+  data: SectionsItem[];
 };

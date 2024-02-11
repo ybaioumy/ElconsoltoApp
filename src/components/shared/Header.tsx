@@ -27,7 +27,7 @@ const CustomHeader = ({ showLogo, screenName }: HeaderProps) => {
         justifyContent: 'space-between',
         alignItems: 'center',
         paddingHorizontal: 16,
-        height: 130,
+        height: 120,
         borderBottomLeftRadius: 25,
       }}>
       {showLogo ? (

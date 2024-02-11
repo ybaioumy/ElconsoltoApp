@@ -1,6 +1,6 @@
-import { Section, SettingSection } from '../types/types';
+import { SettingsSection, SectionsSection } from '../types/types';
 
-export const settings: Section[] = [
+export const settings: SettingsSection[] = [
   {
     title: 'الاعدادات',
     data: [
@@ -42,7 +42,7 @@ export const settings: Section[] = [
   },
 ];
 
-export const sections: SettingSection[] = [
+export const sections: SectionsSection[] = [
   {
     title: 'الاقسام الرئيسية',
     data: [
@@ -55,62 +55,267 @@ export const sections: SettingSection[] = [
       {
         key: '2',
         label: 'الصحة النفسية ',
-        icon: 'PsychologicalHealth',
-        screen: 'PsychologicalHealth',
+        icon: 'mentalHealth',
+        screen: 'MentalHealth',
       },
       {
         key: '3',
-        label: 'نصائح و ارشادات ',
-        icon: 'tipsAndAdvice',
-        screen: 'TipsAndAdvice',
+        label: 'تجميل و تخسيس',
+        icon: 'beauty',
+        screen: 'Beauty',
       },
       {
         key: '4',
-        label: 'نصائح و ارشادات ',
-        icon: 'tipsAndAdvice',
-        screen: 'TipsAndAdvice',
+        label: 'عيادة العيون',
+        icon: 'eyes',
+        screen: 'EyeClinic',
       },
       {
         key: '5',
-        label: 'نصائح و ارشادات ',
-        icon: 'tipsAndAdvice',
-        screen: 'TipsAndAdvice',
+        label: 'امراض مزمنة',
+        icon: 'chronicDiseases',
+        screen: 'ChronicDiseases',
       },
       {
         key: '6',
-        label: 'نصائح و ارشادات ',
+        label: 'الصحة الجنسية',
         icon: 'tipsAndAdvice',
-        screen: 'TipsAndAdvice',
+        screen: 'SexualHealth',
       },
       {
         key: '7',
-        label: 'نصائح و ارشادات ',
-        icon: 'tipsAndAdvice',
-        screen: 'TipsAndAdvice',
+        label: 'تحقيقات و حوارات',
+        icon: 'investigationsAndDialogues',
+        screen: 'InvestigationsAndDialogues',
       },
       {
         key: '8',
-        label: 'نصائح و ارشادات ',
-        icon: 'tipsAndAdvice',
-        screen: 'TipsAndAdvice',
+        label: 'عيادة الاسنان',
+        icon: 'dentalClinic',
+        screen: 'DentalClinic',
       },
       {
         key: '9',
-        label: 'نصائح و ارشادات ',
-        icon: 'tipsAndAdvice',
-        screen: 'TipsAndAdvice',
+        label: 'الأمومة و الطفل',
+        icon: 'motherhoodAndChild',
+        screen: 'MotherhoodAndChild',
       },
       {
         key: '10',
+        label: 'خدعوك فقالو',
+        icon: 'deceived',
+        screen: 'Deceived',
+      },
+      {
+        key: '11',
+        label: 'اخبار الصحة',
+        icon: 'healthNews',
+        screen: 'HealthNews',
+      },
+    ],
+  },
+  {
+    title: 'الحاسبات',
+    data: [
+      {
+        key: '1',
         label: 'نصائح و ارشادات ',
         icon: 'tipsAndAdvice',
         screen: 'TipsAndAdvice',
       },
       {
+        key: '2',
+        label: 'التذكير بالدواء ',
+        icon: 'mentalHealth',
+        screen: 'MedicineReminder',
+      },
+      {
+        key: '3',
+        label: 'تجميل و تخسيس',
+        icon: 'beauty',
+        screen: 'Beauty',
+      },
+      {
+        key: '4',
+        label: 'عيادة العيون',
+        icon: 'eyes',
+        screen: 'EyeClinic',
+      },
+      {
+        key: '5',
+        label: 'امراض مزمنة',
+        icon: 'chronicDiseases',
+        screen: 'ChronicDiseases',
+      },
+      {
+        key: '6',
+        label: 'الصحة الجنسية',
+        icon: 'tipsAndAdvice',
+        screen: 'SexualHealth',
+      },
+      {
+        key: '7',
+        label: 'تحقيقات و حوارات',
+        icon: 'investigationsAndDialogues',
+        screen: 'InvestigationsAndDialogues',
+      },
+      {
+        key: '8',
+        label: 'عيادة الاسنان',
+        icon: 'dentalClinic',
+        screen: 'DentalClinic',
+      },
+      {
+        key: '9',
+        label: 'الأمومة و الطفل',
+        icon: 'motherhoodAndChild',
+        screen: 'MotherhoodAndChild',
+      },
+      {
+        key: '10',
+        label: 'خدعوك فقالو',
+        icon: 'deceived',
+        screen: 'Deceived',
+      },
+      {
         key: '11',
+        label: 'اخبار الصحة',
+        icon: 'healthNews',
+        screen: 'HealthNews',
+      },
+    ],
+  },
+  {
+    title: 'الامومة و الطفل',
+    data: [
+      {
+        key: '1',
         label: 'نصائح و ارشادات ',
         icon: 'tipsAndAdvice',
         screen: 'TipsAndAdvice',
+      },
+      {
+        key: '2',
+        label: 'الصحة النفسية ',
+        icon: 'mentalHealth',
+        screen: 'MentalHealth',
+      },
+      {
+        key: '3',
+        label: 'تجميل و تخسيس',
+        icon: 'beauty',
+        screen: 'Beauty',
+      },
+      {
+        key: '4',
+        label: 'عيادة العيون',
+        icon: 'eyes',
+        screen: 'EyeClinic',
+      },
+      {
+        key: '5',
+        label: 'امراض مزمنة',
+        icon: 'chronicDiseases',
+        screen: 'ChronicDiseases',
+      },
+      {
+        key: '6',
+        label: 'الصحة الجنسية',
+        icon: 'tipsAndAdvice',
+        screen: 'SexualHealth',
+      },
+      {
+        key: '7',
+        label: 'تحقيقات و حوارات',
+        icon: 'investigationsAndDialogues',
+        screen: 'InvestigationsAndDialogues',
+      },
+      {
+        key: '8',
+        label: 'عيادة الاسنان',
+        icon: 'dentalClinic',
+        screen: 'DentalClinic',
+      },
+      {
+        key: '9',
+        label: 'الأمومة و الطفل',
+        icon: 'motherhoodAndChild',
+        screen: 'MotherhoodAndChild',
+      },
+      {
+        key: '10',
+        label: 'خدعوك فقالو',
+        icon: 'deceived',
+        screen: 'Deceived',
+      },
+      {
+        key: '11',
+        label: 'اخبار الصحة',
+        icon: 'healthNews',
+        screen: 'HealthNews',
+      },
+    ],
+  },
+];
+
+export const calculators: SectionsSection[] = [
+  {
+    title: 'Calculators',
+    data: [
+      {
+        key: '1',
+        label: 'اختبار قياس النظر',
+        screen: 'Calculator',
+      },
+      {
+        key: '1',
+        label: 'اختبار قياس النظر',
+        screen: 'Calculator',
+      },
+      {
+        key: '1',
+        label: 'اختبار قياس النظر',
+        screen: 'Calculator',
+      },
+      {
+        key: '1',
+        label: 'اختبار قياس النظر',
+        screen: 'Calculator',
+      },
+      {
+        key: '1',
+        label: 'اختبار قياس النظر',
+        screen: 'Calculator',
+      },
+      {
+        key: '1',
+        label: 'اختبار قياس النظر',
+        screen: 'Calculator',
+      },
+      {
+        key: '1',
+        label: 'اختبار قياس النظر',
+        screen: 'Calculator',
+      },
+      {
+        key: '1',
+        label: 'اختبار قياس النظر',
+        screen: 'Calculator',
+      },
+      {
+        key: '1',
+        label: 'اختبار قياس النظر',
+        screen: 'Calculator',
+      },
+      {
+        key: '1',
+        label: 'اختبار قياس النظر',
+        screen: 'Calculator',
+      },
+      {
+        key: '1',
+        label: 'اختبار قياس النظر',
+        screen: 'Calculator',
       },
     ],
   },

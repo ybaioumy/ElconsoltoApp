@@ -94,9 +94,7 @@ const WaterIntakeCalculator: React.FC = () => {
           unit="kg"
         />
         <View style={{ marginVertical: 50, width: '100%' }}>
-          <Button
-            style={{ backgroundColor: '#37C0BE', alignSelf: 'center' }}
-            width="large">
+          <Button style={{ alignSelf: 'center' }} width="large">
             <Text style={{ color: '#FFF' }} bold size={18}>
               النتيجة
             </Text>
