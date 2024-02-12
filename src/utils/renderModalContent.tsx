@@ -1,6 +1,8 @@
 import { View } from 'react-native';
 import Text from '../components/shared/Text';
+import MedicineReminder from '../components/reminders/MedicineReminder';
 const dynamicContent = (screenName: string) => {
+  // console.log(screenName);
   let content: React.ReactNode;
   switch (screenName) {
     case 'home':
@@ -25,11 +27,7 @@ const dynamicContent = (screenName: string) => {
       );
       break;
     case 'MedicineReminder':
-      content = (
-        <View>
-          <Text>Profile</Text>
-        </View>
-      );
+      content = <MedicineReminder />;
       break;
     default:
       content = (

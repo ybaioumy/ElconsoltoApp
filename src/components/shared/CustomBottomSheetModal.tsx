@@ -39,6 +39,7 @@ const CustomBottomSheetModal = forwardRef<Ref, props>((props, ref) => {
   );
   return (
     <BottomSheetModal
+      style={{ flex: 1 }}
       ref={ref}
       index={0}
       snapPoints={snapPoints}
@@ -60,14 +61,15 @@ const CustomBottomSheetModal = forwardRef<Ref, props>((props, ref) => {
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
+
     paddingHorizontal: 15,
     paddingVertical: 15,
-    backgroundColor: '#fff',
   },
   contentContainer: {
-    // flex: 1,
+    flex: 1,
     alignItems: 'center',
-    // justifyContent: 'space-between',
+    justifyContent: 'space-between',
   },
   header: {
     flexDirection: 'row',
