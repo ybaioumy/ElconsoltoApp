@@ -1,33 +1,38 @@
 // CustomBottomTabBar.js
 
-import React, { useEffect, useCallback, useState } from 'react';
-import { View, TouchableOpacity, StyleSheet } from 'react-native';
+import React, { useEffect, useCallback, useState, useRef } from 'react';
+import { View, TouchableOpacity, StyleSheet, Animated } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import RenderIcon from './RenderIcon';
 import Text from './Text';
 const CustomBottomTabBar = () => {
   const navigation = useNavigation();
   const [hidden, setHidden] = useState(false);
+  const [iconColor, setIconColor] = useState(false);
 
   const navigateToScreen = (screenName: string) => {
     navigation.navigate(screenName as never);
   };
 
   const hiddenScreens = ['Onboarding', 'Login', 'Register', 'Favorites'];
+  const womenScreen = ['PregnancyAndBirth'];
+
   useEffect(() => {
     const unsubscribe = navigation.addListener('state', () => {
       const currentRoute =
         navigation?.getState()?.routes[navigation?.getState()?.index]?.name;
-      // console.log(currentRoute);
+      // to hide the navigation if matches the route of the hidden screens 
       setHidden(currentRoute ? hiddenScreens.includes(currentRoute) : true);
+      setIconColor(currentRoute ? womenScreen.includes(currentRoute) : true);
     });
 
     return unsubscribe;
   }, [navigation]);
-  // Render null if the tab bar should be hidden
+
   if (hidden) {
     return null;
   }
+
   return (
     <View style={styles.tabBar}>
       <TouchableOpacity
@@ -37,7 +42,7 @@ const CustomBottomTabBar = () => {
         <Text size={12}>الرئيسية</Text>
       </TouchableOpacity>
       <TouchableOpacity
-        onPress={() => navigateToScreen('BMI')}
+        onPress={() => navigateToScreen('Enclopedia')}
         style={styles.tabItem}>
         <RenderIcon iconName="health" />
         <Text size={12}>صحتك</Text>
@@ -46,7 +51,11 @@ const CustomBottomTabBar = () => {
         onPress={() => navigateToScreen('Sections')}
         style={[styles.tabItem, styles.middleTab]}>
         <View style={styles.middleTabContent}>
-          <View style={styles.middleTabInner}>
+          <View
+            style={[
+              styles.middleTabContent,
+              iconColor ? { backgroundColor: '#B66B8A' } : null,
+            ]}>
             <RenderIcon iconName="burgerMenu" />
           </View>
         </View>
@@ -73,12 +82,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
     alignItems: 'center',
     backgroundColor: '#fff',
-    paddingBottom: 5,
-    marginTop: 10,
-    // position: 'absolute',
-    // left: 0,
-    // right: 0,
-    // bottom: 0,
+
   },
   tabItem: {
     flex: 1,

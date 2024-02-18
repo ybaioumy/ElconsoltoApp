@@ -1,4 +1,4 @@
-import { StyleSheet, View, LogBox } from 'react-native';
+import { StyleSheet, View, LogBox, StatusBar } from 'react-native';
 import React, { useCallback } from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
@@ -23,6 +23,9 @@ import Sections from './screens/Sections';
 import MedicineReminder from './screens/healthSections/MedicineReminder';
 import RemindersListing from './screens/Reminders';
 import HealthInNumbers from './screens/healthSections/HealthInNumbers';
+import EncyclopediaOfMedicines from './screens/healthSections/EncyclopediaOfMedicines';
+import PregnancyAndBirth from './screens/healthSections/PregnancyAndBirth';
+
 const Stack = createNativeStackNavigator();
 SplashScreen.preventAutoHideAsync();
 LogBox.ignoreLogs(['Reanimated']); // issue wiht latest version of React native with reanimated
@@ -45,6 +48,7 @@ const Router = () => {
   }
   return (
     <View style={styles.container} onLayout={onLayoutRootView}>
+      <StatusBar barStyle={'light-content'} />
       <Stack.Navigator
         initialRouteName="Onboarding"
         screenOptions={{
@@ -72,12 +76,14 @@ const Router = () => {
         <Stack.Screen name="Search" component={Search} />
         <Stack.Screen name="SearchResult" component={SearchResult} />
         <Stack.Screen name="BMI" component={BMI} />
-        {/* <Stack.Screen name="Health" component={BMI} /> */}
+        
         <Stack.Screen name="Sections" component={Sections} />
         <Stack.Screen name="Settings" component={Settings} />
         <Stack.Screen name="MedicineReminder" component={MedicineReminder} />
         <Stack.Screen name="Reminders" component={RemindersListing} />
         <Stack.Screen name="Health" component={HealthInNumbers} />
+        <Stack.Screen name="Enclopedia" component={EncyclopediaOfMedicines} />
+        <Stack.Screen name="PregnancyAndBirth" component={PregnancyAndBirth} />
         <Stack.Screen
           name="Article"
           component={Article}

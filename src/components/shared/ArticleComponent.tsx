@@ -1,10 +1,9 @@
-import { StyleSheet, View, Image, Pressable } from 'react-native';
+import { StyleSheet, View, Pressable } from 'react-native';
 import React from 'react';
 import { ArticleComponentProps } from '../../types/types';
 import Text from './Text';
 import RenderIcon from './RenderIcon';
-import ArticleImage from '../../images/image.jpg';
-import { lightTheme } from '../../constants/theme';
+import { Image } from 'expo-image';
 
 const ArticleComponent: React.FC<ArticleComponentProps> = ({
   imageSource,
@@ -14,6 +13,8 @@ const ArticleComponent: React.FC<ArticleComponentProps> = ({
   vertical,
   onPress,
 }) => {
+  const blurhash = 'L9FG][wf1lSJ?dv#K4i{{zs:D*n,';
+
   return (
     <Pressable
       onPress={onPress}
@@ -29,6 +30,8 @@ const ArticleComponent: React.FC<ArticleComponentProps> = ({
           { height: vertical ? 262 : 85 },
           vertical ? { alignSelf: 'center' } : null,
         ]}
+        priority={'high'}
+        placeholder={blurhash}
       />
       <View
         style={[styles.detailsContainer, { flex: vertical ? undefined : 1 }]}>

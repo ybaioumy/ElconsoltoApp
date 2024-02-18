@@ -9,7 +9,7 @@ import Loader from '../components/shared/Loader';
 import { useNavigation } from '@react-navigation/native';
 import { StatusBar } from 'expo-status-bar';
 
-import { data } from '../utils/dummyData';
+import { data } from '../lib/dummyData';
 const Home = () => {
   const navigation = useNavigation();
   const [loading, setLoading] = useState<boolean>(false);
@@ -18,7 +18,7 @@ const Home = () => {
     setLoading(true);
 
     // Perform data fetching here
-    // For example, fetch data from an API and update the 'data' state
+   
 
     // Simulating data fetching delay
     setTimeout(() => {
@@ -48,7 +48,7 @@ const navigateToArticleScreen = (articleData: ArticleItemProps) => {
   return (
     <>
       <View style={styles.container}>
-        <StatusBar style="light" />
+        
         <FlatList
           data={data}
           renderItem={renderItem}

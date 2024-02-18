@@ -39,11 +39,11 @@ export type TextInputProps = {
   label?: string;
   placeholder: string;
   secureTextEntry?: boolean;
-  icon: ReactElement;
+  icon?: ReactElement;
   searchInput?: boolean | undefined;
   style?: any;
   value?: string;
-  backgroundColor?: string
+  backgroundColor?: string;
   onChangeText?: (text: string) => void;
 };
 

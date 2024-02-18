@@ -48,13 +48,14 @@ const CustomHeader = ({ showLogo, screenName }: HeaderProps) => {
           </Pressable>
         </>
       ) : (
-        <View style={[styles.navigation, { paddingTop: insets.top }]}>
+        <View style={[styles.navigation]}>
           <Pressable
             onPress={() => navigation.goBack()}
             style={{
               flexDirection: 'row-reverse',
               alignItems: 'center',
-              marginBottom: insets.top,
+
+              // marginBottom: insets.top,
               gap: 18,
             }}>
             <RenderIcon iconName="rightArrow" color="#fff" />

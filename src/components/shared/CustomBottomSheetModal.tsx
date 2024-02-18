@@ -1,5 +1,5 @@
 import { View, StyleSheet, Pressable } from 'react-native';
-import React, { forwardRef, useCallback, useMemo } from 'react';
+import React, { forwardRef, useCallback, useMemo, useState } from 'react';
 import {
   BottomSheetBackdrop,
   BottomSheetModal,
@@ -9,15 +9,26 @@ import RenderIcon from './RenderIcon';
 import Text from './Text';
 import { dynamicContent } from '../../utils/renderModalContent';
 
-import { useRoute } from '@react-navigation/native';
+import { useNavigation, useRoute } from '@react-navigation/native';
+import { lightTheme } from '../../constants/theme';
 export type Ref = BottomSheetModal;
 type props = {
   title: string;
+  intialIndex: number;
 };
 const CustomBottomSheetModal = forwardRef<Ref, props>((props, ref) => {
   const route = useRoute();
   const screenName = route.name;
   const snapPoints = useMemo(() => ['50%', '75%', '95%'], []);
+
+  const [isWomenScreen, setIsWomenScreen] = useState(false);
+  const navigation = useNavigation();
+  useMemo(() => {
+    const currentRoute =
+      navigation?.getState()?.routes[navigation?.getState()?.index]?.name;
+    const womenScreens = ['PregnancyAndBirth'];
+    setIsWomenScreen(womenScreens.includes(currentRoute));
+  }, [navigation]);
   const CloseBtn = () => {
     const { close } = useBottomSheet();
 
@@ -41,13 +52,18 @@ const CustomBottomSheetModal = forwardRef<Ref, props>((props, ref) => {
     <BottomSheetModal
       style={{ flex: 1 }}
       ref={ref}
-      index={0}
+      index={props.intialIndex}
       snapPoints={snapPoints}
       backdropComponent={renderBackdrop}>
       <View style={styles.container}>
         <View style={styles.header}>
           <CloseBtn />
-          <Text size={16} bold>
+          <Text
+            size={16}
+            bold
+            style={{
+              color: isWomenScreen ? lightTheme.colors.purpleColor : null,
+            }}>
             {props.title}
           </Text>
         </View>

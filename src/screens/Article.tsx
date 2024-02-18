@@ -1,5 +1,11 @@
 import React from 'react';
-import { View, ImageBackground, StyleSheet, Pressable } from 'react-native';
+import {
+  View,
+  ImageBackground,
+  StyleSheet,
+  Pressable,
+  NativeModules,
+} from 'react-native';
 import Text from '../components/shared/Text';
 import RenderIcon from '../components/shared/RenderIcon';
 import { useNavigation } from '@react-navigation/native';
@@ -10,6 +16,9 @@ const Article = ({ route }: any) => {
   // console.log(route);
   const { articleData } = route.params;
   const navigation = useNavigation();
+
+
+
   return (
     <View style={styles.container}>
       <StatusBar style="auto" />

@@ -1,21 +1,17 @@
-import { StyleSheet, View, Image } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import React, { useRef, useState } from 'react';
+import { Image } from 'expo-image';
 import Button from '../../components/shared/Button';
 import Text from '../../components/shared/Text';
 import MedicineReminderImage from '../../images/calculators/medicationReminder.png';
-import { BottomSheetModal, useBottomSheetModal } from '@gorhom/bottom-sheet';
+import { BottomSheetModal } from '@gorhom/bottom-sheet';
 import CustomBottomSheetModal from '../../components/shared/CustomBottomSheetModal';
+
 const MedicineReminder = () => {
   const bottomSheetRef = useRef<BottomSheetModal>(null);
 
-  const handleOpenBottomSheet = () => {
-    bottomSheetRef.current?.present();
-  };
   const handlePresentModalPress = () => bottomSheetRef.current?.present();
 
-  const handleCloseBottomSheet = () => {
-    bottomSheetRef.current?.dismiss();
-  };
   return (
     <View style={styles.container}>
       <Text size={16}>
@@ -28,14 +24,23 @@ const MedicineReminder = () => {
           alignItems: 'center',
           justifyContent: 'space-around',
         }}>
-        <Image source={MedicineReminderImage} />
+        <Image
+          style={styles.image}
+          source={MedicineReminderImage}
+          contentFit="cover"
+          transition={1000}
+        />
         <Button onPress={handlePresentModalPress}>
           <Text bold size={18}>
             التذكير بالدواء
           </Text>
         </Button>
       </View>
-      <CustomBottomSheetModal title="تذكير بالدواء" ref={bottomSheetRef} />
+      <CustomBottomSheetModal
+        title="تذكير بالدواء"
+        ref={bottomSheetRef}
+        intialIndex={1}
+      />
     </View>
   );
 };
@@ -47,5 +52,10 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingHorizontal: 15,
     paddingTop: 16,
+  },
+  image: {
+    flex: 1,
+    width: '100%',
+    // backgroundColor: '#0553',
   },
 });

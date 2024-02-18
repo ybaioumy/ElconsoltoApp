@@ -1,4 +1,4 @@
-import React, { FC, ReactNode, useState } from 'react';
+import React, { FC, ReactNode, useState, useEffect } from 'react';
 import {
   TouchableOpacity,
   StyleSheet,
@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 import { lightTheme } from '../../constants/theme';
 import Text from './Text';
-
+import { useNavigation } from '@react-navigation/native';
 type ButtonType = 'primary' | 'secondary' | 'link';
 type ButtonWidth = 'small' | 'medium' | 'large' | 'xlarge';
 type ButtonRadius = 'rounded' | 'semiRounded';
@@ -29,10 +29,19 @@ const Button: FC<ButtonProps> = ({
   style,
   ...restProps
 }) => {
+  const [isWomenScreen, setIsWomenScreen] = useState(false);
+  const navigation = useNavigation();
+  useEffect(() => {
+    const currentRoute =
+      navigation?.getState()?.routes[navigation?.getState()?.index]?.name;
+    const womenScreens = ['PregnancyAndBirth'];
+    setIsWomenScreen(womenScreens.includes(currentRoute));
+  }, [navigation]);
+
   const getButtonStyle = (): ViewStyle | TextStyle => {
     switch (type) {
       case 'primary':
-        return styles.primaryButton;
+        return isWomenScreen ? styles.primaryButtonWomen : styles.primaryButton;
 
       case 'secondary':
         return styles.secondaryButton;
@@ -86,6 +95,9 @@ const styles = StyleSheet.create({
   },
   primaryButton: {
     backgroundColor: lightTheme.colors.primary,
+  },
+  primaryButtonWomen: {
+    backgroundColor: lightTheme.colors.purpleColor,
   },
   primaryButtonUnselected: {
     backgroundColor: lightTheme.colors.ligthGray,

@@ -9,4 +9,6 @@ export const Translation = {
   Sections: 'اقسام كونسلتو',
   MedicineReminder: 'التذكير بالادوية',
   Health: 'التذكير بالادوية',
+  Enclopedia: 'موسوعة الادوية',
+  PregnancyAndBirth: 'حاسبة الحمل و الولادة',
 } as const;

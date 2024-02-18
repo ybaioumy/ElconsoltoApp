@@ -5,20 +5,26 @@ type CardProps = {
   children: React.ReactNode;
   style?: any;
   width?: string;
+  color?: string;
 };
-export default function Card({ children, width, style }: CardProps) {
+export default function Card({ children, width, style, color }: CardProps) {
   return (
-    <View style={[styles.container, { width: width ? width : '90%' }, style]}>
+    <View
+      style={[
+        styles.container,
+        { width: width ? width : '90%' },
+        { backgroundColor: color ? color : '#fff' },
+        style,
+      ]}>
       {children}
     </View>
   );
 }
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#fff',
     borderRadius: 10,
     padding: 16,
-    // width: '90%',
+    
     alignSelf: 'center',
     marginVertical: 16,
   },
